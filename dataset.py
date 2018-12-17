@@ -17,4 +17,15 @@ df.index = range(df.shape[0])
 
 ###############################################################################
 
-train(input_file)
+
+#Set Parameters
+X_var = 'summary'
+y_var = 'genre'
+max_feature_length = 10
+num_classes = 20
+learning_rate = .1
+batch_size = 10
+num_epochs = 10
+embedding_size = 5
+
+train(df, max_feature_length, num_classes, embedding_size, learning_rate, batch_size, num_epochs)

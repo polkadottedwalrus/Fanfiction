@@ -7,21 +7,17 @@ from utils import to_categorical, get_comment_ids
 from vdcnn import build_model
 from sklearn.model_selection import train_test_split
 
-#Set Parameters
 X_var = 'summary'
 y_var = 'genre'
 
 def get_input_data(dataframe):
     X = dataframe[X_var]
-    y = [x[0] for x in df[y_var]]
+    y = [x[0] for x in dataframe[y_var]]
     y, t = pd.factorize(y)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
     return X_train, X_test, y_train, y_test
 
 
-
-
-y.astype('category')
 def train(input_df, max_feature_length, num_classes, embedding_size, learning_rate, batch_size, num_epochs, save_dir=None, print_summary=False):
     # Stage 1: Convert raw texts into char-ids format && convert labels into one-hot vectors
     X_train, X_test, y_train, y_test = get_input_data(input_df)
